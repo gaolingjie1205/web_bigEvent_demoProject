@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>请登录</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>大事件-登录/注册</title>
+  <!-- 引入layui的css，使用其iconfont、弹出层组件 -->
+  <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+  <!-- 引入layui.js，使用其表单验证组件、弹出层组件 -->
+  <script src="./assets/lib/layui/layui.js"></script>
+  <script src="./assets/lib/layui/layui.all.js"></script>
+  <!-- 引入jQuery -->
+  <script src="./assets/lib/jquery.js"></script>
+  <!-- 引入注册页CSS -->
+  <link rel="stylesheet" href="./assets/css/login.css"/>
+  <!-- 引入注册页JS -->
+  <script src="./assets/js/baseAPI.js"></script>
+  <script src="./assets/js/login.js"></script>
 </head>
 <body>
-  <p>1234</p>
+  <div class="container-wrapper">
+    <header>
+      <h1><img src="./assets/images/logo.png" alt=""/></h1>
+    </header>
+    <!-- 登录注册区域 -->
+    <main class="loginAndRegBox">
+      <div class="title">后台管理系统</div>
+      <!-- 登录 -->
+      <div class="login">
+        <!-- .layui-form类是layui组件功能生效的必要类，表单元素的lay-verify属性决定了layui会如何验证表单数据 -->
+        <!-- 具体的使用方法需要参考官方文档 -->
+        <!-- https://www.ilayuis.com/doc/modules/form.html#verify -->
+        <form id="loginForm" class="layui-form" method="post">
+          <div class="form-item">
+            <label for="uname"></label>
+            <i class="layui-icon layui-icon-username"></i>
+            <input type="text" id="uname" name="username" required placeholder="用户名" lay-verify="required"/>
+          </div>
+          <div class="form-item">
+            <label for="upwd"></label>
+            <i class="layui-icon layui-icon-password"></i>
+            <input type="password" id="upwd" name="password" required placeholder="密码" lay-verify="required|pwd"/>
+          </div>
+          <div class="form-item">
+            <button type="submit" lay-submit>登录</button>
+          </div>
+          <div class="form-item">
+            <a href="javascript:;" id="link-register">去注册账号</a>
+          </div>
+        </form>
+      </div>
+      <!-- 注册 -->
+      <div class="register">
+        <form id="registerForm" class="layui-form" method="post">
+          <div class="form-item">
+            <label for="uname2"></label>
+            <i class="layui-icon layui-icon-username"></i>
+            <!-- 这里的name属性要严格与服务器要求的参数名称一致 -->
+            <input type="text" id="uname2" name="username" required placeholder="用户名" lay-verify="required"/>
+          </div>
+          <div class="form-item">
+            <label for="upwd2"></label>
+            <i class="layui-icon layui-icon-password"></i>
+            <!-- 这里的name属性要严格与服务器要求的参数名称一致 -->
+            <input type="password" id="upwd2" name="password" required placeholder="密码" lay-verify="required|pwd"/>
+          </div>
+          <div class="form-item">
+            <label for="upwdcheck2"></label>
+            <i class="layui-icon layui-icon-password"></i>
+            <input type="password" id="upwdcheck2" name="upwdcheck2" required placeholder="再次输入密码" lay-verify="required|pwd|repwd"/>
+          </div>
+          <div class="form-item">
+            <button type="submit" lay-submit>注册</button>
+          </div>
+          <div class="form-item">
+            <a href="javascript:;" id="link-login">去登录</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
 </body>
 </html>

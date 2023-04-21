@@ -1,0 +1,101 @@
+@import "./base.less";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  background-image: url("../images/login_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+// 版心
+.container-wrapper {
+  width: 1140px;
+  margin: 0 auto;
+}
+// 登录注册区域
+.loginAndRegBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 330px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+
+  .title {
+    height: 60px;
+    font: 500 32px/60px "\5B8B\4F53";
+    color: lightskyblue;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  // 登录
+  .login {
+
+  }
+  // 注册
+  .register {
+    display: none;
+  }
+  // 表单项通用样式
+  .form-item {
+    position: relative;
+    height: 40px;
+    padding: 0px 20px;
+    margin: 10px 0;
+
+    /*
+    & > label {
+      float: left;
+      width: 25%;
+      height: 40px;
+      text-align: right;
+      font: 14px/40px 'system-ui';
+    }
+    */
+    // 字体图标
+    & > .layui-icon {
+      position: absolute;
+      top: 50%;
+      left: 32px;
+      transform: translate(0, -50%);
+    }
+    & > input {
+      // float: left;
+      width: 100%;
+      height: 40px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-indent: 2em;
+      transition: all 0.3s;
+
+      &:focus {
+        border: 1px solid #000;
+      }
+      &::placeholder {
+        color: #ccc;
+      }
+      
+    }
+    & > button {
+      width: 100%;
+      height: 40px;
+      border: 1px solid lightskyblue;
+      background-color: lightskyblue;
+      font-size: 16px;
+      color: #fff;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: rgb(161, 214, 248);
+      }
+    }
+    & > a {
+      float: right;
+      font: 16px/40px 'system-ui';
+    }
+  }
+}

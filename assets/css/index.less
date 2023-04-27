@@ -1,0 +1,195 @@
+@import "./base.less";
+
+body {
+  // 直接不展示会导致echarts抛出 NS_ERROR_FAILURE 异常对象，因为作为iframe里面的页面的DOM被隐藏了，echarts找不到DOM元素
+  // display: none;
+  visibility: hidden;
+  height: 0;
+}
+// 网页头部
+header.admin {
+  & > .header {
+    height: 60px;
+    background-color: #23262e;
+
+    & > .logo {
+      float: left;
+      width: 200px;
+      height: 60px;
+    }
+    // 包含用户头像、用户昵称首字母图片(未实现)、用户个人中心下拉菜单、退出按钮的综合导航栏
+    & > .header-nav {
+      float: right;
+      height: 60px;
+      padding: 0 20px;
+      font-size: 0;
+
+      & > .header-nav-item {
+        display: inline-block;
+        position: relative;
+        height: 60px;
+        font: 14px/60px 'system-ui';
+        color: #fff;
+
+        & > a {
+          display: block;
+          position: relative;
+          height: 60px;
+          padding: 0 20px;
+          color: #ccc;
+          transition: all 0.3s;
+          user-select: none;
+
+          &:hover {
+            color: #fff;
+          }
+          
+          
+        }
+        & > .header-nav-item-childnav {
+          // 个人中心下拉菜单
+          display: none;
+          position: absolute;
+          top: 59px;   // 想不通为什么会默认多1px，这里只能把多的1px减去
+          left: 0;
+          z-index: 2;
+          width: 100%;
+          background-color: #eee;
+          text-align: center;
+
+          a {
+            display: block;
+            width: 100%;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+// 用户头像公共类
+.header-nav-item-img {
+  width: 40px;
+  height: 40px;
+  margin: 10px 10px 10px 0;
+  border-radius: 50%;
+}
+.text-avatar {
+  display: inline-block;
+  display: none;
+  background-color: lightseagreen;
+  font: 20px/2 'system-ui';
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// 侧边功能导航栏
+.side {
+  position: fixed;
+  top: 60px;
+  bottom: 44px;
+  left: 0;
+  z-index: 999;
+  overflow: auto;
+  width: 200px;
+  // height: calc(100% - 60px);
+  background-color: #393D49;
+  color: #fff;
+  user-select: none;
+
+  .side-scroll{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    // 用户欢迎信息
+    .userinfo {
+      width: 100%;
+      height: 60px;
+      font: 12px/60px 'system-ui';
+      text-align: center;
+    }
+    // 导航栏主体
+    .side-nav {
+      width: 100%;
+      font-size: 0;
+
+      .side-nav-item {
+        width: 100%;
+        font: 14px/45px 'system-ui';
+
+        a {
+          display: block;
+          position: relative;
+          padding: 0 20px;
+          color: #ccc;
+          transition: all 0.3s;
+
+          // 上下指示小三角，随a的active状态而改变方向
+          &.side-nav-item-panel::after {
+            content: '';
+            position: absolute;
+            top: 12.5px;
+            right: 12.5px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            transform: rotateZ(45deg);
+            transition: all 0.3s;
+          }
+          &:hover,
+          &.side-nav-item-panel.active {
+            background-color: #4E5465;
+            color: #fff;
+          }
+          &.side-nav-item-panel.active {
+            &::after {
+              top: 17.5px;
+              transform: rotateZ(225deg);
+            }
+            & + dl.side-nav-item-childnav {
+              &.articleManage,
+              &.usercenter {
+                // 文章管理下拉菜单，有3个45px高的dd，一共135px高
+                height: 135px;
+              }
+            }
+          }
+        }
+        dl.side-nav-item-childnav {
+          overflow: hidden;
+          height: 0;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+}
+
+// 管理系统主体区域
+.body {
+  position: fixed;
+  top: 60px;
+  left: 200px;
+  right: 0;
+  bottom: 44px;
+
+  & > iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 网页底部
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background-color: #eee;
+  text-align: center;
+  font: 12px/44px 'system-ui';
+}

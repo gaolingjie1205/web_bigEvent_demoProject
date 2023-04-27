@@ -108,16 +108,17 @@ $(function() {
           localStorage.setItem("token", data['token']);
           // 1秒后自动跳转到个人首页
           window.setTimeout(function() {
-            // location.href = "./index.html";
+            location.href = "./index.html";
           }, 1000);
         }
         else {
           layuiLayer.msg(`用户 ${$("#uname").val()} 登录失败！错误信息： ${data['message']}`);
         }
       },
-      error: function(data, textStatus) {
-        console.log(data);
+      error: function(jqXHR, textStatus, exception) {
+        console.log(jqXHR);
         console.log(textStatus);
+        console.log(exception);
         alert("发送登录请求时出错了，请打开控制台查看。");
       }
     });

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图表统计-自己练习</title>
+  <!-- 引入jQuery -->
+  <script src="../assets/lib/jquery.js"></script>
+  <!-- 引入图表统计页JS -->
+  <script src="../assets/lib/main-new.js"></script>
+  <!-- 引入bootstrap3 -->
+  <link rel="stylesheet" href="../assets/lib/bootstrap.css" />
+  <!-- 引入图表统计页CSS -->
+  <link rel="stylesheet" href="../assets/lib/main-new.css">
+  <!-- 引入echarts -->
+  <script src="../assets/lib/echarts.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- 统计信息概览列表 -->
+    <div class="row overview_list">
+      <div class="col-sm-3 col-xs-6">
+        <div class="overview_item">
+          <em>10015</em><span>篇</span>
+          <b>总文章数</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="overview_item scolor01">
+          <em>123</em><span>篇</span>
+          <b>日新增文章数</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="overview_item scolor02">
+          <em>3523</em><span>条</span>
+          <b>评论总数</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="overview_item scolor03">
+          <em>239</em><span>条</span>
+          <b>日新增文章数</b>
+        </div>
+      </div>
+    </div>
+    <!-- ECHARTS图表区域 -->
+    <div class="row echarts_list">
+      <div class="col-sm-8">
+        <!-- "月新增文章数"曲线图 -->
+        <div class="graph_panel" id="curve_show"></div>
+      </div>
+      <div class="col-sm-4">
+        <!-- "分类文章数量比"饼状图 -->
+        <div class="graph_panel" id="pie_show"></div>
+      </div>
+    </div>
+    <div class="row echarts_list">
+      <div class="col-sm-12">
+        <!-- "文章访问量"滚动柱状图 -->
+        <div class="graph_panel" id="column_show"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

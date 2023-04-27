@@ -1,0 +1,55 @@
+body {
+  min-width: 1000px;
+  background-color: #f2f3f5;
+}
+
+.overview_list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.overview_list .overview_item {
+  height: 100px;
+  border: 1px solid #e7e7e9;
+  background-color: #fff;
+  text-align: center;
+}
+.overview_list .overview_item.scolor01 em,
+.overview_list .overview_item.scolor01 span {
+  color: #6ac6e2;
+}
+.overview_list .overview_item.scolor02 em,
+.overview_list .overview_item.scolor02 span {
+  color: #5fd9de;
+}
+.overview_list .overview_item.scolor03 em,
+.overview_list .overview_item.scolor03 span {
+  color: #58d88e;
+}
+.overview_list .overview_item em {
+  display: inline-block;
+  color: #83a2ed;
+  margin: 10px 0 14px 20px;
+  font: normal 50px/1 "microsoft yahei";
+}
+.overview_list .overview_item span {
+  display: inline-block;
+  color: #83a2ed;
+  margin-left: 10px;
+  font: normal 14px/24px "microsoft yahei";
+}
+.overview_list .overview_item b {
+  display: block;
+  background: #e5e5e5;
+  font: 400 14px/24px "microsoft yahei";
+  color: #333;
+}
+
+.echarts_list {
+  margin-bottom: 20px;
+}
+.echarts_list .graph_panel {
+  width: 100%;
+  height: 350px;
+  border: 1px solid #e7e7e9;
+  background-color: #fff;
+}/*# sourceMappingURL=main-new.css.map */
